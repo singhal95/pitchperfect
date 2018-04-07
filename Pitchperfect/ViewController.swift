@@ -10,9 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var recordinglable: UILabel!
     
     @IBAction func recordButton(_ sender: Any) {
-        print("Hello Nitin")
+        recordinglable.text="Recording Start"
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,5 +26,8 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func stoprecordingbutton(_ sender: Any) {
+        recordinglable.text="Tap to record"
+    }
 }
 
