@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var recordinglable: UILabel!
     
+    @IBOutlet weak var stopbutton: UIButton!
     @IBAction func recordButton(_ sender: Any) {
         recordinglable.text="Recording Start"
     }
@@ -24,7 +25,13 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        stopbutton.isEnabled=false
+        
+    }
 
+    
 
     @IBAction func stoprecordingbutton(_ sender: Any) {
         recordinglable.text="Tap to record"
