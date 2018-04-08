@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RecordViewController.swift
 //  Pitchperfect
 //
 //  Created by NITIN SINGHAL on 23/03/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-class ViewController: UIViewController {
+class RecordViewController: UIViewController , AVAudioRecorderDelegate {
 
     @IBOutlet weak var recordinglable: UILabel!
     var audioRecorder: AVAudioRecorder!
@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         try! session.setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
         
         try! audioRecorder = AVAudioRecorder(url: filePath!, settings: [:])
+        audioRecorder.delegate=self
         audioRecorder.isMeteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()
@@ -57,6 +58,25 @@ class ViewController: UIViewController {
         audioRecorder.stop()
         let audiosession=AVAudioSession.sharedInstance()
         try! audiosession.setActive(false)
+    }
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+    
+        if flag{
+        performSegue(withIdentifier: "Xyz", sender: audioRecorder.url)
+        }
+        else{
+            print("Error in recording")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Xyz"{
+            let PlaySoundVc=segue.destination as! PlaySoundViewController
+            let recordaudiourl=sender as! URL
+            PlaySoundVc.RecordAudrioUrl=recordaudiourl
+            
+        }
     }
 }
 
