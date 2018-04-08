@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xcD-uw-cpw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -43,10 +43,11 @@
                                 <state key="normal" image="Stop"/>
                                 <connections>
                                     <action selector="stoprecordingbutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rPZ-1h-Sty"/>
+                                    <segue destination="Uxj-9m-3te" kind="show" id="DFR-Kb-m5y"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hYX-7a-Fdt" firstAttribute="centerX" secondItem="sJn-3x-Z5L" secondAttribute="centerX" id="2qO-cB-3W4"/>
                             <constraint firstItem="FMG-PE-Xi8" firstAttribute="centerX" secondItem="hYX-7a-Fdt" secondAttribute="centerX" id="3zY-MR-4VA"/>
@@ -57,14 +58,49 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="PmH-Gu-q2R"/>
                     <connections>
+                        <outlet property="recordbutton" destination="sJn-3x-Z5L" id="jxS-Js-EfU"/>
                         <outlet property="recordinglable" destination="hYX-7a-Fdt" id="dkk-5x-NgV"/>
                         <outlet property="stopbutton" destination="FMG-PE-Xi8" id="eJe-Sj-3y2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33.5" y="143.5"/>
+            <point key="canvasLocation" x="372" y="143.47826086956522"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="oRg-U7-m4n">
+            <objects>
+                <viewController id="Uxj-9m-3te" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TsG-lq-SSY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ioo-eZ-oVq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfb-0G-UZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1282" y="119"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jHY-hz-LGP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xcD-uw-cpw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ULY-cI-gVk">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="GHD-Pj-UHR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQx-Hx-dRK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-505" y="143"/>
         </scene>
     </scenes>
     <resources>
